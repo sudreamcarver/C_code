@@ -1,0 +1,28 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-Wall",
+      "-Wextra",
+      "-std=c++17",
+      "-pedantic-errors",
+      "-Wconversion",
+      "-Weffc++",
+      "-Werror",
+      "-Wsign-conversion",
+      "-I./include",
+      "-isystem",
+      "/usr/include/c++/15.2.1",
+      "-isystem",
+      "/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include",
+      "-ggdb",
+      "-c",
+      "-o",
+      "build/main.o",
+      "src/main.cpp"
+    ],
+    "directory": "/home/carver/Documents/C_code/cpp_-dev/get_C++std",
+    "file": "/home/carver/Documents/C_code/cpp_-dev/get_C++std/src/main.cpp",
+    "output": "/home/carver/Documents/C_code/cpp_-dev/get_C++std/build/main.o"
+  }
+]
