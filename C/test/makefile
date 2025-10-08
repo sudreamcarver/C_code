@@ -1,4 +1,4 @@
-TARGET = test
+TARGET = gpt3
 
 DEBUG = 1
 
@@ -12,7 +12,7 @@ OBJS := $(patsubst $(C_SOURCES)/%.c, $(BUILD_DIR)/%.o, $(SRCS))
 CC = gcc
 CFLAGS = -Wall -Wextra -I$(C_HEADERS) \
 		 -isystem /usr/include \
-		 -isystem /usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/include
+		 -isystem /usr/lib/gcc/x86_64-pc-linux-gnu/$(shell gcc -dumpversion)/include
 
 ifeq ($(DEBUG), 1)
 	CFLAGS += -g

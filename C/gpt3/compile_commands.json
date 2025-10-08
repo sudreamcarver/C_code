@@ -8,15 +8,15 @@
       "-isystem",
       "/usr/include",
       "-isystem",
-      "/usr/lib/gcc/x86_64-pc-linux-gnu/15.1.1/include",
+      "/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include",
       "-g",
       "-c",
       "-o",
       "build/test.o",
       "src/test.c"
     ],
-    "directory": "/home/carver/Documents/C_code/C/test",
-    "file": "/home/carver/Documents/C_code/C/test/src/test.c",
-    "output": "/home/carver/Documents/C_code/C/test/build/test.o"
+    "directory": "/home/carver/Documents/C_code/C/gpt3",
+    "file": "/home/carver/Documents/C_code/C/gpt3/src/test.c",
+    "output": "/home/carver/Documents/C_code/C/gpt3/build/test.o"
   }
 ]

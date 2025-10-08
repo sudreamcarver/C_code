@@ -1,4 +1,4 @@
-TARGET = gpt3
+TARGET = gpt4
 
 DEBUG = 1
 
