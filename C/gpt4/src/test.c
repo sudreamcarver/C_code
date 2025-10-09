@@ -3,16 +3,22 @@
 #include <stdio.h>
 
 int
-main ()
+main (void)
 {
-    int n;
-    printf ("how many num want:");
-    scanf ("%d", &n);
-    int arry[n];
+    int n = 0;
+    printf ("how many num want(enter 0 to exit):");
     while (true)
         {
+            int arry[n];
             int i;
             double sum;
+            scanf ("%d", &n);
+
+            if (n == 0)
+                {
+                    return 0;
+                }
+
             for (i = 0; i < n; i++)
                 {
                     scanf ("%d", &arry[i]);
