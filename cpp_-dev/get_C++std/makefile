@@ -1,5 +1,5 @@
 # Target name
-TARGET = get_C++_std
+TARGET = test
 
 # Debug switch: 1 for debug (-g), 0 for release (-O2)
 DEBUG = 1
@@ -47,3 +47,4 @@ $(BUILD_DIR):
 	mkdir -p $(BUILD_DIR)
 
 .PHONY: all clean
+

@@ -6,14 +6,21 @@ int
 main ()
 {
     int n;
+    printf ("how many num want:");
+    scanf ("%d", &n);
     int arry[n];
     while (true)
         {
             int i;
-            scanf ("%d", &n);
-            for (i = 0; i = 5; i++)
+            double sum;
+            for (i = 0; i < n; i++)
                 {
+                    scanf ("%d", &arry[i]);
                 }
-            scanf ("%d", &arry[i]);
+            for (i = 0; i < n; i++)
+                {
+                    sum = sum + arry[i];
+                }
+            printf ("avg is:%.2f", (sum / n));
         }
 }

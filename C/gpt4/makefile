@@ -10,7 +10,7 @@ SRCS := $(wildcard $(C_SOURCES)/*.c)
 OBJS := $(patsubst $(C_SOURCES)/%.c, $(BUILD_DIR)/%.o, $(SRCS))
 
 CC = gcc
-CFLAGS = -Wall -Wextra -I$(C_HEADERS) \
+CFLAGS = -Wall -Wextra -std=c17 -pedantic-errors -Wconversion -Wsign-conversion -Werror -I$(C_HEADERS) \
 		 -isystem /usr/include \
 		 -isystem /usr/lib/gcc/x86_64-pc-linux-gnu/$(shell gcc -dumpversion)/include
 
