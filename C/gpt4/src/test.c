@@ -9,15 +9,15 @@ main (void)
     printf ("how many num want(enter 0 to exit):");
     while (true)
         {
-            int arry[n];
-            int i;
-            double sum;
             scanf ("%d", &n);
-
             if (n == 0)
                 {
                     return 0;
                 }
+
+            int arry[n];
+            int i;
+            double sum;
 
             for (i = 0; i < n; i++)
                 {

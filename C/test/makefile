@@ -1,4 +1,4 @@
-TARGET = gpt3
+TARGET = test
 
 DEBUG = 1
 
