@@ -1,11 +1,12 @@
 #include <stdbool.h>
 #include <stdio.h>
 
-int main()
+int
+main (void)
 {
-  while (true)
-  {
-    printf("seaside\n");
-  }
-  return 0;
+    while (true)
+        {
+            printf ("seaside\n");
+        }
+    return 0;
 }

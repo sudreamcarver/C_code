@@ -1,4 +1,4 @@
-TARGET = ptr_test
+TARGET = gpt5
 
 DEBUG = 1
 

@@ -4,11 +4,6 @@
       "/usr/bin/gcc",
       "-Wall",
       "-Wextra",
-      "-std=c17",
-      "-pedantic-errors",
-      "-Wconversion",
-      "-Wsign-conversion",
-      "-Werror",
       "-I./inc",
       "-isystem",
       "/usr/include",
@@ -20,8 +15,8 @@
       "build/test.o",
       "src/test.c"
     ],
-    "directory": "/home/carver/Documents/C_code/C/P_1",
-    "file": "/home/carver/Documents/C_code/C/P_1/src/test.c",
-    "output": "/home/carver/Documents/C_code/C/P_1/build/test.o"
+    "directory": "/home/carver/Documents/C_code/C/ptr_test",
+    "file": "/home/carver/Documents/C_code/C/ptr_test/src/test.c",
+    "output": "/home/carver/Documents/C_code/C/ptr_test/build/test.o"
   }
 ]

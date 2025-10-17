@@ -20,8 +20,8 @@
       "build/test.o",
       "src/test.c"
     ],
-    "directory": "/home/carver/Documents/C_code/C/P_1",
-    "file": "/home/carver/Documents/C_code/C/P_1/src/test.c",
-    "output": "/home/carver/Documents/C_code/C/P_1/build/test.o"
+    "directory": "/home/carver/Documents/C_code/C/gpt5",
+    "file": "/home/carver/Documents/C_code/C/gpt5/src/test.c",
+    "output": "/home/carver/Documents/C_code/C/gpt5/build/test.o"
   }
 ]
