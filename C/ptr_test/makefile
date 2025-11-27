@@ -12,7 +12,8 @@ OBJS := $(patsubst $(C_SOURCES)/%.c, $(BUILD_DIR)/%.o, $(SRCS))
 CC = gcc
 CFLAGS = -Wall -Wextra -std=c17 -pedantic-errors -Wconversion -Wsign-conversion -Werror -I$(C_HEADERS) \
 		 -isystem /usr/include \
-		 -isystem /usr/lib/gcc/x86_64-pc-linux-gnu/$(shell gcc -dumpversion)/include
+		 -isystem /usr/lib/gcc/x86_64-pc-linux-gnu/$(shell gcc -dumpversion)/include \
+		 -isystem /usr/lib/gcc/x86_64-linux-gnu/$(shell gcc -dumpversion)/include
 
 ifeq ($(DEBUG), 1)
 	CFLAGS += -g

@@ -2,31 +2,25 @@
 #include <stdbool.h>
 #include <stdio.h>
 
-int
-main (void)
-{
-    int n = 0;
-    printf ("how many num want(enter 0 to exit):");
-    while (true)
-        {
-            scanf ("%d", &n);
-            if (n == 0)
-                {
-                    return 0;
-                }
+int main(void) {
+  int n = 0;
+  printf("how many num want(enter 0 to exit):");
+  while (true) {
+    scanf("%d", &n);
+    if (n == 0) {
+      return 0;
+    }
 
-            int arry[n];
-            int i;
-            double sum;
+    int arry[n];
+    int i;
+    double sum;
 
-            for (i = 0; i < n; i++)
-                {
-                    scanf ("%d", &arry[i]);
-                }
-            for (i = 0; i < n; i++)
-                {
-                    sum = sum + arry[i];
-                }
-            printf ("avg is:%.2f", (sum / n));
-        }
+    for (i = 0; i < n; i++) {
+      scanf("%d", &arry[i]);
+    }
+    for (i = 0; i < n; i++) {
+      sum = sum + arry[i];
+    }
+    printf("avg is:%.2f", (sum / n));
+  }
 }
