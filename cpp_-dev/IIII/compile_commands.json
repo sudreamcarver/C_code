@@ -1,0 +1,27 @@
+[
+ {
+  "directory": "/home/carver/Documents/C_code/cpp_-dev/IIII",
+  "arguments": [
+   "g++",
+   "-Wall",
+   "-Wextra",
+   "-std=c++17",
+   "-pedantic-errors",
+   "-Wconversion",
+   "-Weffc++",
+   "-Werror",
+   "-Wsign-conversion",
+   "-I./include",
+   "-isystem",
+   "/usr/include/c++/14",
+   "-isystem",
+   "/usr/lib/gcc/x86_64-pc-linux-gnu/14/include",
+   "-ggdb",
+   "-c",
+   "src/main.cpp",
+   "-o",
+   "build/main.o"
+  ],
+  "file": "src/main.cpp"
+ }
+]

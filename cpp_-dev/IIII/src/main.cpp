@@ -5,22 +5,16 @@
 class IntergerList
 {
   public:
-    IntergerList () : target{}
-    {
-        int inserted{};
-        int sum{};
-        std::cin >> inserted;
-        add (inserted);
-        sum = getValue ();
-        std::cout << sum;
-    }
+    IntergerList () : target{} {}
+
     void
     add (int value)
     {
         target.push_back (value);
     }
+
     int
-    getValue ()
+    getValue () const
     {
         size_t length{};
         int sum{};
@@ -40,9 +34,15 @@ class IntergerList
 int
 main ()
 {
+    int inserted{};
+    int sum{};
+    std::cin >> inserted;
     {
         IntergerList i;
+        i.add (inserted);
+        sum = i.getValue ();
     }
+    std::cout << sum;
 
     return 0;
 }
