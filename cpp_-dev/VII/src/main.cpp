@@ -20,7 +20,7 @@ class circle : public shape
     void
     printIdentity () override
     {
-        std::cout << "I am a circle" << std::endl;
+        std::cout << "I am a circle." << std::endl;
     }
 };
 
@@ -28,7 +28,11 @@ int
 main ()
 {
     {
-        circle S;
-        S.printIdentity ();
+        shape *ptr{};
+        ptr = new circle;
+        ptr->printIdentity ();
+        delete ptr;
+        ptr = nullptr;
     }
+    return 0;
 }
