@@ -1,5 +1,5 @@
 # Target name
-TARGET = F
+TARGET = ptr2
 
 # Debug switch: 1 for debug (-g), 0 for release (-O2)
 DEBUG = 1
