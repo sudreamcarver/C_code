@@ -18,11 +18,11 @@
       "-ggdb",
       "-c",
       "-o",
-      "build/main.o",
-      "src/main.cpp"
+      "build/Inventory.o",
+      "src/Inventory.cpp"
     ],
-    "directory": "/home/carver/Documents/C_code/cpp_-dev/T_Pro",
-    "file": "/home/carver/Documents/C_code/cpp_-dev/T_Pro/src/main.cpp",
-    "output": "/home/carver/Documents/C_code/cpp_-dev/T_Pro/build/main.o"
+    "directory": "/home/carver/Documents/C_code/cpp_-dev/RPG",
+    "file": "/home/carver/Documents/C_code/cpp_-dev/RPG/src/Inventory.cpp",
+    "output": "/home/carver/Documents/C_code/cpp_-dev/RPG/build/Inventory.o"
   }
 ]
