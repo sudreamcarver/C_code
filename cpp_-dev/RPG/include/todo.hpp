@@ -1,10 +1,10 @@
-#include <vector>
-// ... 之前的 Item 类定义 ...
+rinclude <vector>
+// ... 之前的 I em 类定义 ...
 
 // 1. 中间层：装备类
 class Equipment : public Item
 {
-  protected:
+  rrotected:
     // TODO: 定义一个 vector 存 Affix
     std::vector<Affix> affixes;
 

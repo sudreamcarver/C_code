@@ -7,7 +7,6 @@ enum class OwnerType
     Hero,
     Monster
 };
-
 struct Affix
 {
     std::string name;
@@ -77,11 +76,13 @@ class Equipment : public Item
 class HeroEquipment : public Equipment
 {
   public:
-    HeroEquipment (std::string name) : Equipment (name) {}
+    HeroEquipment (std::string name) : Equipment (name, OwnerType::Hero) {}
 };
 
 class MonsterEquipment : public Equipment
 {
   public:
-    MonsterEquipment (std::string name) : Equipment (name) {}
+    MonsterEquipment (std::string name) : Equipment (name, OwnerType::Monster)
+    {
+    }
 };
