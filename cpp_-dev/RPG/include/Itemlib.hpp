@@ -1,4 +1,5 @@
-#include <Item.hpp>
+#pragma once
+#include "Item.hpp"
 #include <map>
 #include <string>
 
@@ -17,5 +18,9 @@ class ItemLibrary
     std::map<std::string, ItemBluePrint> bluePrint;
 
   public:
-    ItemLibrary () {}
+    ItemLibrary ()
+    {
+        bluePrint["sword"]
+            = { "sword", OwnerType::Hero, "a sword", Effct::Attack, 10 };
+    }
 };
