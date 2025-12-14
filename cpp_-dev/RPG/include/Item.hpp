@@ -66,6 +66,15 @@ class Item
     int value;
 
   public:
+/**
+ * Construct an Item object.
+ *
+ * @param name The name of the item.
+ * @param type The type of the item.
+ * @param description The description of the item.
+ * @param effct The effect of the item.
+ * @param value The value of the item.
+ */
     Item (std::string name, OwnerType type, std::string description,
           Effct effct, int value)
         : name (name), type (type), description (description), effct (effct),
@@ -110,6 +119,15 @@ class Equipment : public Item
     std::vector<Affix> affixes;
 
   public:
+/**
+ * Construct an Equipment object.
+ *
+ * @param name The name of the equipment.
+ * @param type The type of the equipment.
+ * @param description The description of the equipment.
+ * @param effct The effect of the equipment.
+ * @param value The value of the equipment.
+ */
     Equipment (std::string name, OwnerType type, std::string description,
                Effct effct, int value)
         : Item (name, type, description, effct, value)
@@ -151,6 +169,14 @@ class Equipment : public Item
 class HeroEquipment : public Equipment
 {
   public:
+/**
+ * Construct a HeroEquipment object.
+ *
+ * @param name The name of the equipment.
+ * @param description The description of the equipment.
+ * @param effct The effect of the equipment.
+ * @param value The value of the equipment.
+ */
     HeroEquipment (std::string name, std::string description, Effct effct,
                    int value)
         : Equipment (name, OwnerType::Hero, description, effct, value)
@@ -161,6 +187,14 @@ class HeroEquipment : public Equipment
 class MonsterEquipment : public Equipment
 {
   public:
+/**
+ * Construct a MonsterEquipment object.
+ *
+ * @param name The name of the equipment.
+ * @param description The description of the equipment.
+ * @param effct The effect of the equipment.
+ * @param value The value of the equipment.
+ */
     MonsterEquipment (std::string name, std::string description, Effct effct,
                       int value)
         : Equipment (name, OwnerType::Monster, description, effct, value)
