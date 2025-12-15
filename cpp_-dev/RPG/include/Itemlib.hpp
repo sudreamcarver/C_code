@@ -10,8 +10,7 @@ struct ItemBluePrint
     std::string name;
     OwnerType type;
     std::string description;
-    Effct effct;
-    int value;
+    std::map<Effct, int> baseStats;
 };
 
 class ItemLibrary
@@ -25,14 +24,17 @@ class ItemLibrary
      */
     ItemLibrary ()
     {
-        bluePrint["sword"]
-            = { "sword", OwnerType::Hero, "a sword", Effct::Attack, 10 };
-        bluePrint["GoblinClub"]
-            = { "GoblinClub", OwnerType::Monster, "A dirty wooden club.",
-                Effct::Attack, 12 };
-        bluePrint["IronArmor"]
-            = { "IronArmor", OwnerType::Hero, "Standard soldier armor",
-                Effct::Armor, 10 };
+        bluePrint["sword"] = {
+            "sword", OwnerType::Hero, "a sword", { { Effct::Attack, 10 } }
+        };
+        bluePrint["GoblinClub"] = { "GoblinClub",
+                                    OwnerType::Monster,
+                                    "A dirty wooden club.",
+                                    { { Effct::Attack, 10 } } };
+        bluePrint["IronArmor"] = { "IronArmor",
+                                   OwnerType::Hero,
+                                   "Standard soldier armor",
+                                   { { Effct::Armor, 10 } } };
     }
 
     /**
@@ -75,12 +77,12 @@ class ItemLibrary
         if (bp.type == OwnerType::Hero)
             {
                 return std::make_shared<HeroEquipment> (
-                    bp.name, bp.description, bp.effct, bp.value);
+                    bp.name, bp.description, bp.baseStats);
             }
         else if (bp.type == OwnerType::Monster)
             {
                 return std::make_shared<MonsterEquipment> (
-                    bp.name, bp.description, bp.effct, bp.value);
+                    bp.name, bp.description, bp.baseStats);
             }
         return nullptr;
     }

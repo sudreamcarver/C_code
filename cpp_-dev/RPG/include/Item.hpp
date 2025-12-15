@@ -169,6 +169,8 @@ class Equipment : public Item
     ShowDetail () const override
     {
         std::string returnedAffix{};
+        std::string info{};
+
         for (const auto &affix : affixes)
             {
                 returnedAffix += affix.toString () + "\n";
@@ -178,11 +180,32 @@ class Equipment : public Item
         switch (type)
             {
             case OwnerType::Hero:
-                return Item::GetName () + "-> Hero" + "\n" + returnedAffix;
+                info = Item::GetName () + "-> Hero" + "\n";
             case OwnerType::Monster:
-                return Item::GetName () + "-> Monster" + "\n" + returnedAffix;
+                info = Item::GetName () + "-> Monster" + "\n";
             default:
                 return "Unknow";
+            }
+
+        for (auto const &[key, val] : baseStats)
+            {
+                switch (key)
+                    {
+                    case Effct::Attack:
+                        info += "Attack" + std::to_string (val);
+                    case Effct::Defense:
+                        info += "Defense" + std::to_string (val);
+                    case Effct::MagicPower:
+                        info += "MagicPower" + std::to_string (val);
+                    case Effct::MagicDefense:
+                        info += "MagicDefense" + std::to_string (val);
+                    case Effct::Health:
+                        info += "hp" + std::to_string (val);
+                    case Effct::Armor:
+                        info += "Armor" + std::to_string (val);
+                    default:
+                        info += "Unknow";
+                    }
             }
     }
 };
@@ -198,9 +221,9 @@ class HeroEquipment : public Equipment
      * @param effct The effect of the equipment.
      * @param value The value of the equipment.
      */
-    HeroEquipment (std::string name, std::string description, Effct effct,
-                   int value)
-        : Equipment (name, OwnerType::Hero, description, effct, value)
+    HeroEquipment (std::string name, std::string description,
+                   std::map<Effct, int> baseStats)
+        : Equipment (name, OwnerType::Hero, description, baseStats)
     {
     }
 };
@@ -216,9 +239,9 @@ class MonsterEquipment : public Equipment
      * @param effct The effect of the equipment.
      * @param value The value of the equipment.
      */
-    MonsterEquipment (std::string name, std::string description, Effct effct,
-                      int value)
-        : Equipment (name, OwnerType::Monster, description, effct, value)
+    MonsterEquipment (std::string name, std::string description,
+                      std::map<Effct, int> baseStats)
+        : Equipment (name, OwnerType::Monster, description, baseStats)
     {
     }
 };
