@@ -20,6 +20,9 @@ class ItemLibrary
     std::map<std::string, ItemBluePrint> bluePrint;
 
   public:
+    /**
+     * This class represents a library of item blueprints.
+     */
     ItemLibrary ()
     {
         bluePrint["sword"]
@@ -31,11 +34,31 @@ class ItemLibrary
             = { "IronArmor", OwnerType::Hero, "Standard soldier armor",
                 Effct::Armor, 10 };
     }
+
+    /**
+     * @brief Creates a new item in the item blueprints.
+     *
+     * @param id The name of the item to create.
+     *
+     */
     void
     DefineItem (const std::string &id, const ItemBluePrint &bp)
     {
         bluePrint[id] = bp;
     }
+    /**
+     * @brief Creates a new item using the item blueprints.
+     *
+     * @param itemName The name of the item to create.
+     *
+     * @return A shared pointer to the newly created item. If the item is not
+     * found, nullptr is returned.
+     */
+    /**
+     * If the item is found, it will return a shared pointer to the newly
+     * created item. If the item is not found, it will print an error message
+     * and return nullptr.
+     */
     std::shared_ptr<Item>
     CreatItem (const std::string &itemName)
     {

@@ -1,3 +1,4 @@
+#include <map>
 #include <string>
 #include <vector>
 
@@ -62,25 +63,25 @@ class Item
     std::string name;
     OwnerType type;
     std::string description;
-    Effct effct;
-    int value;
+    std::map<Effct, int> baseStats;
 
   public:
-/**
- * Construct an Item object.
- *
- * @param name The name of the item.
- * @param type The type of the item.
- * @param description The description of the item.
- * @param effct The effect of the item.
- * @param value The value of the item.
- */
+    /**
+     * Construct an Item object.
+     *
+     * @param name The name of the item.
+     * @param type The type of the item.
+     * @param description The description of the item.
+     * @param effct The effect of the item.
+     * @param value The value of the item.
+     */
     Item (std::string name, OwnerType type, std::string description,
-          Effct effct, int value)
-        : name (name), type (type), description (description), effct (effct),
-          value (value)
+          std::map<Effct, int> baseStats)
+        : name (name), type (type), description (description),
+          baseStats (baseStats)
     {
     }
+
     virtual ~Item () = default;
 
     virtual std::string ShowDetail () const = 0;
@@ -96,20 +97,21 @@ class Item
     {
         return name;
     }
+
     auto
     GetDescriptison () const
     {
         return description;
     }
+
     auto
-    GetEffct () const
+    GetBaseStat (Effct target)
     {
-        return effct;
-    }
-    auto
-    GetValue ()
-    {
-        return value;
+        if (baseStats.count (target))
+            {
+                return baseStats.at (target);
+            }
+        return 0;
     }
 };
 
@@ -119,18 +121,18 @@ class Equipment : public Item
     std::vector<Affix> affixes;
 
   public:
-/**
- * Construct an Equipment object.
- *
- * @param name The name of the equipment.
- * @param type The type of the equipment.
- * @param description The description of the equipment.
- * @param effct The effect of the equipment.
- * @param value The value of the equipment.
- */
+    /**
+     * Construct an Equipment object.
+     *
+     * @param name The name of the equipment.
+     * @param type The type of the equipment.
+     * @param description The description of the equipment.
+     * @param effct The effect of the equipment.
+     * @param value The value of the equipment.
+     */
     Equipment (std::string name, OwnerType type, std::string description,
-               Effct effct, int value)
-        : Item (name, type, description, effct, value)
+               std::map<Effct, int> stats)
+        : Item (name, type, description, stats)
     {
     }
 
@@ -142,6 +144,25 @@ class Equipment : public Item
         affix.value = value;
         affix.effctInAffix = affixEffct;
         affixes.push_back (affix);
+    }
+
+    int
+    GetItemTotalBonus (Effct targetEffct) const
+    {
+        int total{};
+        if (baseStats.count (targetEffct))
+            {
+                total += baseStats.at (targetEffct);
+            }
+
+        for (const auto &affix : affixes)
+            {
+                if (affix.effctInAffix == targetEffct)
+                    {
+                        total += affix.value;
+                    }
+            }
+        return total;
     }
 
     std::string
@@ -169,14 +190,14 @@ class Equipment : public Item
 class HeroEquipment : public Equipment
 {
   public:
-/**
- * Construct a HeroEquipment object.
- *
- * @param name The name of the equipment.
- * @param description The description of the equipment.
- * @param effct The effect of the equipment.
- * @param value The value of the equipment.
- */
+    /**
+     * Construct a HeroEquipment object.
+     *
+     * @param name The name of the equipment.
+     * @param description The description of the equipment.
+     * @param effct The effect of the equipment.
+     * @param value The value of the equipment.
+     */
     HeroEquipment (std::string name, std::string description, Effct effct,
                    int value)
         : Equipment (name, OwnerType::Hero, description, effct, value)
@@ -187,14 +208,14 @@ class HeroEquipment : public Equipment
 class MonsterEquipment : public Equipment
 {
   public:
-/**
- * Construct a MonsterEquipment object.
- *
- * @param name The name of the equipment.
- * @param description The description of the equipment.
- * @param effct The effect of the equipment.
- * @param value The value of the equipment.
- */
+    /**
+     * Construct a MonsterEquipment object.
+     *
+     * @param name The name of the equipment.
+     * @param description The description of the equipment.
+     * @param effct The effect of the equipment.
+     * @param value The value of the equipment.
+     */
     MonsterEquipment (std::string name, std::string description, Effct effct,
                       int value)
         : Equipment (name, OwnerType::Monster, description, effct, value)
