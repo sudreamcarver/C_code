@@ -7,10 +7,10 @@
 
 struct ItemBluePrint
 {
-    std::string name;
-    OwnerType type;
-    std::string description;
-    std::map<Effct, int> baseStats;
+    std::string name{};
+    OwnerType type{ OwnerType::Hero };
+    std::string description{};
+    std::map<Effct, int> baseStats{};
 };
 
 class ItemLibrary
@@ -22,7 +22,7 @@ class ItemLibrary
     /**
      * This class represents a library of item blueprints.
      */
-    ItemLibrary ()
+    ItemLibrary () : bluePrint{}
     {
         bluePrint["sword"] = {
             "sword", OwnerType::Hero, "a sword", { { Effct::Attack, 10 } }

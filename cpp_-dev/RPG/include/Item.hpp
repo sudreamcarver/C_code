@@ -1,3 +1,4 @@
+#pragma once
 #include <map>
 #include <string>
 #include <vector>
@@ -22,9 +23,9 @@ enum class Effct
 // 词条
 struct Affix
 {
-    std::string name;
-    Effct effctInAffix;
-    int value;
+    std::string name{};
+    Effct effctInAffix{ Effct::Attack };
+    int value{};
 
     std::string
     toString () const
@@ -132,7 +133,7 @@ class Equipment : public Item
      */
     Equipment (std::string name, OwnerType type, std::string description,
                std::map<Effct, int> stats)
-        : Item (name, type, description, stats)
+        : Item (name, type, description, stats), affixes{}
     {
     }
 
@@ -181,10 +182,13 @@ class Equipment : public Item
             {
             case OwnerType::Hero:
                 info = Item::GetName () + "-> Hero" + "\n";
+                break;
             case OwnerType::Monster:
                 info = Item::GetName () + "-> Monster" + "\n";
+                break;
             default:
                 return "Unknow";
+                break;
             }
 
         for (auto const &[key, val] : baseStats)
@@ -192,21 +196,30 @@ class Equipment : public Item
                 switch (key)
                     {
                     case Effct::Attack:
-                        info += "Attack" + std::to_string (val);
+                        info += "Attack ->" + std::to_string (val) + "\n";
+                        break;
                     case Effct::Defense:
-                        info += "Defense" + std::to_string (val);
+                        info += "Defense ->" + std::to_string (val) + "\n";
+                        break;
                     case Effct::MagicPower:
-                        info += "MagicPower" + std::to_string (val);
+                        info += "MagicPower ->" + std::to_string (val) + "\n";
+                        break;
                     case Effct::MagicDefense:
-                        info += "MagicDefense" + std::to_string (val);
+                        info
+                            += "MagicDefense ->" + std::to_string (val) + "\n";
+                        break;
                     case Effct::Health:
-                        info += "hp" + std::to_string (val);
+                        info += "maxhp ->" + std::to_string (val) + "\n";
+                        break;
                     case Effct::Armor:
-                        info += "Armor" + std::to_string (val);
+                        info += "Armor ->" + std::to_string (val) + "\n";
+                        break;
                     default:
                         info += "Unknow";
+                        break;
                     }
             }
+        return info + returnedAffix;
     }
 };
 
