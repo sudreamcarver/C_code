@@ -1,0 +1,27 @@
+[
+ {
+  "directory": "/home/carver/Documents/C_code/cpp_-dev/color",
+  "arguments": [
+   "g++",
+   "-Wall",
+   "-Wextra",
+   "-std=c++17",
+   "-pedantic-errors",
+   "-Wconversion",
+   "-Weffc++",
+   "-Werror",
+   "-Wsign-conversion",
+   "-I./include",
+   "-isystem",
+   "/usr/include/c++/15.2.1",
+   "-isystem",
+   "/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include",
+   "-ggdb",
+   "-c",
+   "src/main.cpp",
+   "-o",
+   "build/main.o"
+  ],
+  "file": "src/main.cpp"
+ }
+]
