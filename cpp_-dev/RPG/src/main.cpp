@@ -1,6 +1,7 @@
 #include "Item.hpp"
 #include "Itemlib.hpp"
 #include "character.hpp"
+#include <Input.hpp>
 #include <ctime>
 #include <iostream>
 
@@ -8,6 +9,8 @@ int
 main ()
 {
     std::srand (static_cast<unsigned int> (std::time (nullptr)));
+    setupConsole ();
+
     // 1. 初始化
     ItemLibrary lib;
     Attributes baseStats

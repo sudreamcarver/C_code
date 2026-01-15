@@ -14,7 +14,8 @@ const std::string WHITE_TXT = "\033[97m";
 int
 main ()
 {
-    std::cout << "--- Color Test ---"; // cout means "character out"
+    std::cout << "--- Color Test ---"
+              << std::endl; // cout means "character out"
 
     std::cout << RED_TXT << "Enemy took 50 damage!" << RESET << std::endl;
     std::cout << GREEN_TXT << "Hero recovered 20 HP" << RESET << std::endl;
