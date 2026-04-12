@@ -4,6 +4,7 @@
  */
 
 // 自引用
+// 定义哈希表节点结构：数字+下标
 typedef struct HashNode
 {
     int key;
@@ -11,7 +12,7 @@ typedef struct HashNode
     struct HashNode *next;
 } HashNode;
 
-// 链表的表
+// 定义哈希表结构，节点数组
 typedef struct
 {
     HashNode **table;
@@ -21,17 +22,20 @@ typedef struct
 HashTable *
 CreatHashTable (int size)
 {
+    // 节点数组的地址
     HashTable *ht = (HashTable *)malloc (sizeof (HashTable));
     ht->size = size;
+    // 申请内存
     ht->table = (HashNode **)calloc (size, sizeof (HashNode *));
     return ht;
 }
 
+// 将数字映射为数组下标
 int
 Hash (int key, int size)
 {
+    // 返回数组下标
     return (key % size + size) % size;
-    ;
 }
 
 void
@@ -41,7 +45,9 @@ Insert (HashTable *ht, int key, int val)
     HashNode *newNode = (HashNode *)malloc (sizeof (HashNode));
     newNode->key = key;
     newNode->val = val;
+    // table[index]是哈希表内节点的地址，把新节点的next指针指向表内节点
     newNode->next = ht->table[index];
+    // 把新节点挂到表的最前面
     ht->table[index] = newNode;
 }
 
