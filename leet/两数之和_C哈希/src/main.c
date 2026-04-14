@@ -31,7 +31,6 @@ int
 Hash (int key, int size)
 {
     return (key % size + size) % size;
-    ;
 }
 
 void
