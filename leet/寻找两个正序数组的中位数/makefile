@@ -20,7 +20,8 @@ CXX = g++
 
 CXXFLAGS = -Wall -Wextra -std=c++17 -pedantic-errors -Wconversion -Weffc++ -Werror -Wsign-conversion -I$(CXX_HEADERS) \
 		   -isystem /usr/include/c++/$(shell $(CXX) -dumpversion) \
-		   -isystem /usr/lib/gcc/x86_64-pc-linux-gnu/$(shell $(CXX) -dumpversion)/include
+		   -isystem /usr/lib/gcc/x86_64-pc-linux-gnu/$(shell $(CXX) -dumpversion)/include \
+		   -isystem /usr/include \
 
 ifeq ($(DEBUG), 1)
 	CXXFLAGS += -ggdb

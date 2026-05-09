@@ -12,17 +12,19 @@
       "-Wsign-conversion",
       "-I./include",
       "-isystem",
-      "/usr/include/c++/15.2.1",
+      "/usr/include/c++/14",
       "-isystem",
-      "/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include",
+      "/usr/lib/gcc/x86_64-pc-linux-gnu/14/include",
+      "-isystem",
+      "/usr/include",
       "-ggdb",
       "-c",
       "-o",
       "build/main.o",
       "src/main.cpp"
     ],
-    "directory": "/home/carver/Documents/C_code/cpp_-dev/T_Pro",
-    "file": "/home/carver/Documents/C_code/cpp_-dev/T_Pro/src/main.cpp",
-    "output": "/home/carver/Documents/C_code/cpp_-dev/T_Pro/build/main.o"
+    "directory": "/home/carver/Documents/C_code/leet/寻找两个正序数组的中位数",
+    "file": "/home/carver/Documents/C_code/leet/寻找两个正序数组的中位数/src/main.cpp",
+    "output": "/home/carver/Documents/C_code/leet/寻找两个正序数组的中位数/build/main.o"
   }
 ]
