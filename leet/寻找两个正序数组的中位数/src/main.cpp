@@ -9,6 +9,7 @@ class Solution
     double
     findMedianSortedArrays (std::vector<int> &nums1, std::vector<int> &nums2)
     {
+        // make a exchange,keep 2>1
         if (nums1.size () > nums2.size ())
             {
                 return findMedianSortedArrays (nums2, nums1);
@@ -16,6 +17,7 @@ class Solution
 
         int m{ static_cast<int> (nums1.size ()) };
         int n{ static_cast<int> (nums2.size ()) };
+
         int total{ m + n };
 
         int low{ 0 };
@@ -23,7 +25,9 @@ class Solution
 
         while (low <= high)
             {
+                // 序列1的中位数的序号
                 int i{ (low + high) / 2 };
+                // 序列2的中位数的序号
                 int j{ (total + 1) / 2 - i };
 
                 int left1_max
